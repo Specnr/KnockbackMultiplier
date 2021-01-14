@@ -1,0 +1,12 @@
+name: KnockbackMultiplier
+version: ${project.version}
+main: me.specnr.knockbackmultiplier.KnockbackMultiplier
+api-version: 1.16
+authors: [ Specnr ]
+description: Multiply knockback as the game progresses
+website: https://www.youtube.com/c/specnr
+commands:
+  kb:
+    description: Starts the knockback multiplier
+  kb-reset:
+    description: Resets knockback
