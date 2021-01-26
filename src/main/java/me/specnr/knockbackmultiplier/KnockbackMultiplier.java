@@ -39,6 +39,8 @@ public final class KnockbackMultiplier extends JavaPlugin implements Listener {
     public void onDamageEvent(EntityDamageByEntityEvent e){
         Entity d = e.getDamager();
         Entity ent = e.getEntity();
+        if (getConfig().getBoolean("PlayerOnly") && !(ent instanceof Player))
+            return;
         ent.setVelocity(d.getLocation().getDirection().setY(0).normalize().multiply(multiplier));
     }
 
