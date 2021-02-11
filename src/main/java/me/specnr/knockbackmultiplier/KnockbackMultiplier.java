@@ -3,6 +3,7 @@ package me.specnr.knockbackmultiplier;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.EnderDragon;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -40,6 +41,8 @@ public final class KnockbackMultiplier extends JavaPlugin implements Listener {
         Entity d = e.getDamager();
         Entity ent = e.getEntity();
         if (getConfig().getBoolean("PlayerOnly") && !(ent instanceof Player))
+            return;
+        if (!getConfig().getBoolean("ApplyToDragon") && ent instanceof EnderDragon)
             return;
         ent.setVelocity(d.getLocation().getDirection().setY(0).normalize().multiply(multiplier));
     }
